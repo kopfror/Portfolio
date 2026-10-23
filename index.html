@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Hamza Shuibat</title>
+    <meta name="description" content="Projects by Hamza Shuibat: Blueline, a museum web page, and this portfolio.">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ===================== HEADER + NAVIGATION BAR ===================== -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">HS</a>
+
+            <ul class="nav-links">
+               <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <input type="checkbox" id="theme-switch" class="theme-switch" aria-label="Light mode">
+            <label for="theme-switch" class="theme-toggle" title="Dark / light mode">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            </label>
+        </nav>
+    </header>
+
+    <!-- ===================== HERO (HOME) ===================== -->
+    <main>
+        <section class="hero container">
+            <div class="hero-text">
+                <h1>Hamza Shuibat</h1>
+                <p class="hero-title">Software Engineering</p>
+                <p class="hero-intro"> Third-year Software Engineering student. I want to build AI agents, and right now
+                    I'm working on my own, called Blueline.</p>
+
+                <div class="hero-buttons">
+                    <a href="projects.html" class="button button-main">See my projects</a>
+                    <a href="index.html#contact" class="button button-outline">Contact me</a>
+                </div>
+
+            </div>
+
+            <div class="hero-circle">
+                <img src="images/ME.jpg" alt="Hamza Shuibat">
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== ABOUT ME ===================== -->
+    <section id="about" class="section container">
+
+        <h2>About me</h2>
+
+        <div class="about">
+            <div class="about-text">
+                <p>
+                    I'm Hamza, a third-year Software Engineering student. My focus is AI agentic
+                    engineering: building software that can plan a task, use tools, and finish
+                    the job on its own.
+                </p>
+                <p>
+                    I write Java, I'm interested in building AI agents, I live in the terminal, and yes, I use Arch by the way.
+                </p>
+
+                <div class="about-buttons">
+                    <a href="about.html" class="button button-main">More about me</a>
+                </div>
+            </div>
+
+            <ul class="facts">
+                <li class="school"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Software Engineering,
+                    year 3</li>
+                <li class="ai"><i class="fa-solid fa-robot" aria-hidden="true"></i> Building Blueline</li>
+                <li class="java"><i class="fa-brands fa-java" aria-hidden="true"></i> Java</li>
+                <li class="html"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML</li>
+                <li class="css"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS</li>
+                <li class="js"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</li>
+                <li class="bash"><i class="si si-bash" aria-hidden="true"></i> Bash</li>
+                <li class="arch"><i class="si si-arch" aria-hidden="true"></i> Arch Linux (btw)</li>
+                <li class="zorin"><i class="si si-zorin" aria-hidden="true"></i> Zorin OS</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section container">
+        <h2>Skills</h2>
+
+        <ul class="skills">
+            <li class="skill languages">
+                <a href="skills.html#languages">
+                    <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    <h3>Multi programming language user</h3>
+                </a>
+            </li>
+            <li class="skill ai">
+                <a href="skills.html#ai">
+                    <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                    <h3>AI agentic</h3>
+                </a>
+            </li>
+            <li class="skill linux">
+                <a href="skills.html#linux">
+                    <i class="fa-brands fa-linux" aria-hidden="true"></i>
+                    <h3>Linux</h3>
+                </a>
+            </li>
+            <li class="skill git">
+                <a href="skills.html#git">
+                    <i class="fa-brands fa-git-alt" aria-hidden="true"></i>
+                    <h3>Git &amp; GitHub</h3>
+                </a>
+            </li>
+            <li class="skill gaming">
+                <a href="skills.html#gaming">
+                    <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+                    <h3>Pro gamer</h3>
+                </a>
+            </li>
+            <li class="skill skill-more">
+                <a href="skills.html">
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <h3>More &amp; More</h3>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section container">
+        <h2>Projects</h2>
+
+        <div class="projects">
+
+            <article class="project">
+                <figure class="project-image">
+                    <img src="images/blueline.svg"
+                        alt="Drawing of Blueline, an AI agent that turns a task into a result using tools"
+                        loading="lazy">
+                </figure>
+                <p class="stamp">In development</p>
+                <div class="project-body">
+                    <h3>Blueline</h3>
+                    <p>
+                        My own AI agent, and the project I spend the most time on. I'm building it
+                        to take a task, plan the steps, choose the right tools, and finish it on its own.
+                    </p>
+                    <ul class="tags">
+                        <li>AI agent</li>
+                        <li>Agentic AI</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/kopfror" target="_blank" rel="noopener">Follow on GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project">
+                <figure class="project-image">
+                    <img src="images/museum.jpg"
+                        alt="Screenshot of the museum web page about the painting Morning Ride Along the Beach"
+                        loading="lazy">
+                </figure>
+                <p class="stamp">Completed</p>
+                <div class="project-body">
+                    <h3>Museum web page</h3>
+                    <p>
+                        An art museum page about Anton Mauve's painting “Morning Ride Along the Beach”
+                        (1876), with a hero image, artwork details, a pull quote, and links to the
+                        Rijksmuseum and Wikipedia.
+                    </p>
+                    <ul class="tags">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>University project</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://kopfror.github.io/Museum-Uni/" target="_blank" rel="noopener">Live demo</a>
+                        <a href="https://github.com/kopfror/Museum-Uni" target="_blank" rel="noopener">View code</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+        <div class="projects-buttons">
+            <a href="projects.html" class="button button-outline">
+                More projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+
+    <section id="contact" class="section container">
+        <h2>Contact</h2>
+        <p class="contact-text">Want to talk about AI agents or a project idea? Find me here.</p>
+
+        <ul class="socials">
+            <li>
+                <a class="social linkedin" href="https://www.linkedin.com/in/hamza-shuibat-36375a200" target="_blank"
+                    rel="noopener">
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </li>
+            <li>
+                <a class="social github" href="https://github.com/kopfror" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                </a>
+            </li>
+            <li>
+                <a class="social youtube" href="https://www.youtube.com/@kopfror" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    <span>YouTube</span>
+                </a>
+            </li>
+            <li>
+                <a class="social email" href="mailto:hamza1162006@gmail.com">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <span>Email</span>
+                </a>
+            </li>
+            <li>
+                <a class="social whatsapp" href="https://wa.me/970568210807" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </li>
+            <li>
+                <a class="social discord" href="https://discord.gg/HF3p3g2rF" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    <span>Discord</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Hamza Shuibat</p>
+            <a href="#" class="to-top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hamza Shuibat skills.">
+    <title>My skills | Hamza Shuibat</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">HS</a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <input type="checkbox" id="theme-switch" class="theme-switch" aria-label="Light mode">
+            <label for="theme-switch" class="theme-toggle" title="Dark / light mode">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            </label>
+        </nav>
+    </header>
+    <main>
+        <section class="section container skills-top">
+            <h1>My skills</h1>
+            <p class="skills-lead">Here are the skills I've built so far!</p>
+        </section>
+
+        <!-- ===================== 1. LANGUAGES ===================== -->
+        <section id="languages" class="section container catalog">
+            <h2><i class="fa-solid fa-code" aria-hidden="true"></i> Languages</h2>
+
+            <div class="terminals">
+
+                <!-- ===== Java: a terminal that shows the code, runs it, and prints the result ===== -->
+                <article class="lang java">
+                    <h3><i class="fa-brands fa-java" aria-hidden="true"></i> Java</h3>
+
+                    <div class="terminal">
+                        <div class="terminal-bar" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <pre class="terminal-body"><code><span class="t-path">~</span>
+<span class="t-prompt">❯</span> cat Main.java
+<span class="t-kw">public class</span> <span class="t-type">Main</span> {
+    <span class="t-kw">public static void</span> <span class="t-fn">main</span>(<span class="t-type">String</span>[] args) {
+        System.out.<span class="t-fn">println</span>(<span class="t-str">"Hello, World!"</span>);
+    }
+}
+
+<span class="t-output">Hello, World!</span>
+
+<span class="t-path">~</span>
+<span class="t-prompt">❯</span> <span class="t-cursor"></span></code></pre>
+                    </div>
+                </article>
+
+                <!-- ===== Bash: neofetch on Arch ===== -->
+                <!-- ===== Bash: neofetch on Arch, then the "nuke" command waiting at the end ===== -->
+                <article class="lang bash">
+                    <h3><i class="si si-bash" aria-hidden="true"></i> Bash</h3>
+
+                    <div class="terminal">
+                        <div class="terminal-bar" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="t-path">~</span></p>
+                            <p><span class="t-prompt">❯</span> fastfetch</p>
+
+                            <div class="neofetch">
+                                <i class="si si-arch" aria-hidden="true"></i>
+                                <!-- replace these values with your real neofetch output -->
+                                <ul class="neofetch-info">
+                                    <li><span class="t-key">kopfror</span>@<span class="t-key">archlinux</span></li>
+                                    <li>-----------------</li>
+                                    <li><span class="t-key">OS:</span> Ryoku (Arch Linux)</li>
+                                    <li><span class="t-key">Kernel:</span> Linux 7.2.11-arch1-1</li>
+                                    <li><span class="t-key">WM:</span> Hyprland</li>
+                                    <li><span class="t-key">Shell:</span> fish</li>
+                                    <li><span class="t-key">Terminal:</span> kitty 0.49.2</li>
+                                    <li><span class="t-key">Packages:</span> 1112 (pacman)</li>
+                                    <li><span class="t-key">CPU:</span> Intel Core i5-12450HX</li>
+                                    <li><span class="t-key">GPU:</span> NVIDIA GeForce RTX 3050 6GB</li>
+                                    <li><span class="t-key">Memory:</span> 1.88 GiB / 15.39 GiB</li>
+                                    <li class="color-blocks" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span>
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="t-comment"># don't try this at home</p>
+                            <p><span class="t-path">~</span></p>
+                            <p><span class="t-prompt">❯</span> <span class="t-command">sudo rm -rf /
+                                    --no-preserve-root</span><span class="t-cursor"></span></p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- ===== HTML, CSS, JavaScript: the same mini page in 3 stages ===== -->
+            <ul class="web-trio">
+                <li class="web-card html">
+                    <h3><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML</h3>
+                    <div class="mini-page" aria-hidden="true">
+                        <span class="mini-bar"></span>
+                        <span class="mini-title"></span>
+                        <span class="mini-line"></span>
+                        <span class="mini-line short"></span>
+                        <span class="mini-btn"></span>
+                    </div>
+                    <p>The structure: what's on the page.</p>
+                </li>
+                <li class="web-card css">
+                    <h3><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS</h3>
+                    <div class="mini-page" aria-hidden="true">
+                        <span class="mini-bar"></span>
+                        <span class="mini-title"></span>
+                        <span class="mini-line"></span>
+                        <span class="mini-line short"></span>
+                        <span class="mini-btn"></span>
+                    </div>
+                    <p>The style: how it looks.</p>
+                </li>
+                <li class="web-card js">
+                    <h3><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</h3>
+                    <div class="mini-page styled" aria-hidden="true">
+                        <span class="mini-bar"></span>
+                        <span class="mini-title"></span>
+                        <span class="mini-line"></span>
+                        <span class="mini-line short"></span>
+                        <span class="mini-btn"></span>
+                        <em class="mini-toast">&#10003; Clicked!</em>
+                    </div>
+                    <p>The behavior: what it does.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ===================== 2. AI AGENTIC ===================== -->
+        <section id="ai" class="section container catalog">
+            <h2><i class="fa-solid fa-robot" aria-hidden="true"></i> AI agentic</h2>
+
+            <div class="wip-card">
+                <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                <div>
+                    <p class="wip-badge"><span class="wip-dot"></span> In development</p>
+                    <h3>Blueline is on the way</h3>
+                    <p>
+                        I'm building my own AI agent, Blueline. This section will show what it can do
+                        once it's ready.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== 4. LINUX ===================== -->
+        <section id="linux" class="section container catalog">
+            <h2><i class="fa-brands fa-linux" aria-hidden="true"></i> Linux</h2>
+
+            <!-- Arch logo: a button to the official Arch website -->
+            <a class="arch-link arch" href="https://archlinux.org/" target="_blank" rel="noopener">
+                <i class="si si-arch" aria-hidden="true"></i>
+                <span>Arch Linux</span>
+                <small>archlinux.org</small>
+            </a>
+
+            <!-- ===== the desktop I use now ===== -->
+            <h3 class="linux-sub">The desktop I use now</h3>
+
+            <article class="rice">
+                <a class="rice-name" href="https://ryoku.dev/" target="_blank" rel="noopener">
+                    Ryoku <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+                <p>A hand-built Arch Linux desktop on Hyprland.</p>
+                <div class="video">
+                    <iframe src="https://www.youtube-nocookie.com/embed/Yo0nCbux6QI" title="Ryoku desktop video"
+                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </article>
+
+            <!-- ===== desktops I used before ===== -->
+            <h3 class="linux-sub">Desktops I used before</h3>
+
+            <div class="rices-old">
+                <article class="rice">
+                    <a class="rice-name" href="https://ii.clsty.link/en/" target="_blank" rel="noopener">
+                        end-4 (illogical-impulse) <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i>
+                    </a>
+                    <div class="video">
+                        <iframe src="https://www.youtube-nocookie.com/embed/TCfbLFEPWH0"
+                            title="end-4 illogical-impulse desktop video" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </article>
+
+                <article class="rice">
+                    <a class="rice-name" href="https://github.com/caelestia-dots/shell" target="_blank" rel="noopener">
+                        Caelestia <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                    <div class="video">
+                        <iframe src="https://www.youtube-nocookie.com/embed/TggHDm0_vBw" title="Caelestia desktop video"
+                            loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </article>
+            </div>
+            <div class="zorin-block">
+
+                <!-- ===================== ZORIN OS ===================== -->
+                <div class="zorin-block">
+                    <!-- Zorin logo: a button to the official Zorin OS website -->
+                    <a class="arch-link zorin" href="https://zorin.com/os/" target="_blank" rel="noopener">
+                        <i class="si si-zorin" aria-hidden="true"></i>
+                        <span>Zorin OS</span>
+                        <small>zorin.com</small>
+                    </a>
+
+                    <article class="rice">
+                        <a class="rice-name" href="https://zorin.com/os/" target="_blank" rel="noopener">
+                            Zorin OS <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                        <div class="video">
+                            <iframe src="https://www.youtube-nocookie.com/embed/30BKvLCEdkQ"
+                                title="Zorin OS desktop video" loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- ===================== MY CURRENT TERMINAL ===================== -->
+                <h3 class="linux-sub">My current terminal</h3>
+
+                <figure class="my-terminal">
+                    <img src="images/preview.jpg"
+                        alt="My kitty terminal on Ryoku showing fastfetch: Intel Core i5-12450HX, RTX 3050, Hyprland, fish shell"
+                        loading="lazy">
+                    <figcaption>kitty + fastfetch on Ryoku (Hyprland)</figcaption>
+                </figure>
+        </section>
+
+        <!-- ===================== 3. GIT & GITHUB ===================== -->
+        <section id="git" class="section container catalog">
+            <h2><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git &amp; GitHub</h2>
+            <p class="catalog-lead">I'm still early with Git. These are the basics I'm learning and using:</p>
+
+            <div class="git-row">
+                <!-- terminal with the basic Git commands -->
+                <article class="lang git">
+                    <h3><i class="fa-brands fa-git-alt" aria-hidden="true"></i> The basics</h3>
+
+                    <div class="terminal">
+                        <div class="terminal-bar" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <pre class="terminal-body"><code><span class="t-comment"># start tracking a project</span>
+<span class="t-prompt">❯</span> git init
+
+<span class="t-comment"># choose the files to save</span>
+<span class="t-prompt">❯</span> git add .
+
+<span class="t-comment"># save a snapshot with a message</span>
+<span class="t-prompt">❯</span> git commit -m <span class="t-str">"My portfolio website"</span>
+
+<span class="t-comment"># upload it to GitHub</span>
+<span class="t-prompt">❯</span> git push origin main
+<span class="t-prompt">❯</span> <span class="t-cursor"></span></code></pre>
+                    </div>
+                </article>
+
+                <!-- GitHub profile button, same style as the Arch button -->
+                <a class="arch-link github" href="https://github.com/kopfror" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                    <small>@kopfror</small>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===================== 5. GAMING ===================== -->
+        <section id="gaming" class="section container catalog">
+            <h2><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Gaming</h2>
+
+            <!-- ===== playing now ===== -->
+            <h3 class="games-sub">Playing now</h3>
+            <ul class="now-playing">
+                <li class="now-game"><span class="live-dot"></span> Where Winds Meet</li>
+                <li class="now-game"><span class="live-dot"></span> Terraria</li>
+            </ul>
+
+            <!-- ===== games I've played ===== -->
+            <h3 class="games-sub">Games I've played</h3>
+            <ul class="game-list">
+                <li>Sekiro: Shadows Die Twice</li>
+                <li>Metro 2033 Redux</li>
+                <li>Metro: Last Light</li>
+                <li>Metro Exodus</li>
+                <li>Red Dead Redemption 2</li>
+                <li>Ghost of Tsushima</li>
+                <li>Call of Duty (a lot of them)</li>
+                <li>Battlefield</li>
+                <li>Medal of Honor</li>
+                <li>Kingdom Come: Deliverance</li>
+                <li>Kingdom Come: Deliverance II</li>
+                <li class="game-more">and more…</li>
+            </ul>
+        </section>
+
+
+
+    </main>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Hamza Shuibat</p>
+            <a href="#" class="to-top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

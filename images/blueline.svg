@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <title>Blueline: blueprint of an AI agent</title>
+  <defs>
+    <radialGradient id="paper" cx="42%" cy="38%" r="85%">
+      <stop offset="0" stop-color="#1a5795"/>
+      <stop offset="1" stop-color="#0b2d5b"/>
+    </radialGradient>
+    <pattern id="grid-s" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="#ffffff" stroke-opacity=".07"/>
+    </pattern>
+    <pattern id="grid-l" width="125" height="125" patternUnits="userSpaceOnUse">
+      <path d="M125 0H0V125" fill="none" stroke="#ffffff" stroke-opacity=".14"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 1.5 L10 6 L1 10.5" fill="none" stroke="#8fdcff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-white" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M1 1.5 L10 6 L1 10.5" fill="none" stroke="#e9f3ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- paper + grid -->
+  <rect width="1200" height="750" fill="url(#paper)"/>
+  <rect width="1200" height="750" fill="url(#grid-s)"/>
+  <rect width="1200" height="750" fill="url(#grid-l)"/>
+
+  <!-- sheet frame -->
+  <g fill="none" stroke="#e9f3ff">
+    <rect x="25" y="25" width="1150" height="700" stroke-opacity=".6" stroke-width="1.5"/>
+    <rect x="37.5" y="37.5" width="1125" height="675" stroke-opacity=".22"/>
+  </g>
+
+  <!-- the drawing -->
+  <g fill="none" stroke="#e9f3ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- agent core: tick dial, outer ring, inner dashed loop -->
+    <circle cx="600" cy="300" r="136" stroke-opacity=".38" stroke-width="8" stroke-dasharray="1.2 22.54" stroke-linecap="butt"/>
+    <circle cx="600" cy="300" r="120" stroke-opacity=".9"/>
+    <circle cx="600" cy="300" r="84" stroke-opacity=".5" stroke-dasharray="6 7"/>
+
+    <!-- loop direction on the lower half -->
+    <path d="M595 210 L602 216 L595 222" transform="rotate(135 600 300)" stroke-opacity=".85"/>
+    <path d="M595 210 L602 216 L595 222" transform="rotate(225 600 300)" stroke-opacity=".85"/>
+
+    <!-- task, result and tools boxes -->
+    <rect x="125" y="268" width="180" height="64" stroke-opacity=".9"/>
+    <rect x="895" y="268" width="180" height="64" stroke-opacity=".9"/>
+    <rect x="525" y="84" width="150" height="56" stroke-opacity=".9"/>
+    <path d="M600 146 V174" stroke-opacity=".9" marker-start="url(#arrow-white)" marker-end="url(#arrow-white)"/>
+
+    <!-- dimension: core diameter -->
+    <g stroke-opacity=".7" stroke-width="1.2">
+      <path d="M480 318 V494 M720 318 V494"/>
+      <path d="M480 482 H562 M638 482 H720"/>
+      <path d="M474 488 L486 476 M714 488 L726 476"/>
+    </g>
+  </g>
+
+  <!-- the blue line: task to result, through the agent loop -->
+  <path d="M305 300 H516 A84 84 0 0 1 684 300 H895" fill="none" stroke="#39b6ff" stroke-width="10" stroke-opacity=".6" filter="url(#glow)"/>
+  <path d="M305 300 H516 A84 84 0 0 1 684 300 H893" fill="none" stroke="#8fdcff" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+  <circle cx="305" cy="300" r="6" fill="#8fdcff"/>
+
+  <!-- labels -->
+  <g fill="#e9f3ff" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
+    <text x="215" y="308" font-size="22" font-weight="700">Task</text>
+    <text x="985" y="308" font-size="22" font-weight="700">Result</text>
+    <text x="600" y="119" font-size="20" font-weight="700">Tools</text>
+    <text x="600" y="320" font-size="34" font-weight="800" letter-spacing="1">Blueline</text>
+  </g>
+  <g fill="#e9f3ff" font-family="ui-monospace, 'IBM Plex Mono', Menlo, Consolas, monospace" text-anchor="middle">
+    <text x="600" y="345" font-size="12" fill-opacity=".75" letter-spacing="2">AGENT CORE</text>
+    <text x="600" y="487" font-size="14" fill-opacity=".85">Ø 240</text>
+  </g>
+
+  <!-- notes -->
+  <g fill="#e9f3ff">
+    <text x="65" y="612" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.5">NOTES</text>
+    <g font-family="ui-monospace, 'IBM Plex Mono', Menlo, Consolas, monospace" font-size="13" fill-opacity=".8">
+      <text x="65" y="640">1. Preliminary design, subject to change.</text>
+      <text x="65" y="663">2. Agent under active development.</text>
+      <text x="65" y="686">3. Do not scale this drawing.</text>
+    </g>
+  </g>
+
+  <!-- title block -->
+  <g fill="none" stroke="#e9f3ff" stroke-opacity=".6" stroke-width="1.2">
+    <rect x="762.5" y="587.5" width="400" height="125"/>
+    <path d="M762.5 637.5 H1162.5 M762.5 675 H1162.5 M1062.5 587.5 V637.5 M962.5 637.5 V712.5"/>
+  </g>
+  <g fill="#e9f3ff" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+    <text x="780" y="623" font-size="27" font-weight="800" letter-spacing="4">BLUELINE</text>
+    <text x="1078" y="627" font-size="20" font-weight="700">0.1</text>
+    <text x="780" y="669" font-size="13" font-weight="700">AI agent</text>
+    <text x="980" y="669" font-size="13" font-weight="700">In development</text>
+    <text x="780" y="706" font-size="13" font-weight="700">H. Shuibat</text>
+    <text x="980" y="706" font-size="13" font-weight="700">1 of 1</text>
+  </g>
+  <g fill="#e9f3ff" fill-opacity=".6" font-family="ui-monospace, 'IBM Plex Mono', Menlo, Consolas, monospace" font-size="9.5" letter-spacing="1.2">
+    <text x="1078" y="603">REV</text>
+    <text x="780" y="652">TYPE</text>
+    <text x="980" y="652">STATUS</text>
+    <text x="780" y="689">DRAWN BY</text>
+    <text x="980" y="689">SHEET</text>
+  </g>
+</svg>
