@@ -681,18 +681,28 @@ h3 {
 }
 
 .social {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     width: 130px;
-    padding: 24px 10px 18px;
+    padding: 24px 10px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--surface);
     color: var(--muted);
     font-weight: 600;
     transition: transform 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* the name is hidden from the eyes, but screen readers still read it */
+.social span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 .social i {
@@ -1647,10 +1657,16 @@ h3 {
    and fades out at the top (same idea as the journey stops) */
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-        .catalog {
-            animation: stop-in linear both, stop-out linear forwards;
+
+        .catalog:not(#gaming)>*:not(.zorin-block),
+        .zorin-block>* {
+            animation: reveal linear both, stop-out linear forwards;
             animation-timeline: view(), view();
-            animation-range: entry 0% entry 100%, exit 0% exit 100%;
+            animation-range: entry 0% entry 60%, exit 40% exit 100%;
+        }
+
+        .catalog:not(#gaming)>h2 {
+            animation-name: title-in, stop-out;
         }
     }
 }
@@ -1822,61 +1838,61 @@ h3 {
    ===================================================================== */
 
 .projects-top h1 {
-  margin-bottom: 20px;
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
-  animation: fade-up 0.8s both;
+    margin-bottom: 20px;
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+    animation: fade-up 0.8s both;
 }
 
 .projects-lead {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.2rem;
-  animation: fade-up 0.8s 0.2s both;
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.2rem;
+    animation: fade-up 0.8s 0.2s both;
 }
 
 /* 2 cards per row (the cards themselves come from section 8) */
 .projects-all {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
-.projects-all > * {
-  flex: 1 1 calc(50% - 14px);
+.projects-all>* {
+    flex: 1 1 calc(50% - 14px);
 }
 
 /* "More projects coming soon": dashed card, the + spins on hover */
 .project-soon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 320px;
-  padding: 28px;
-  border: 1px dashed var(--frame);
-  border-radius: var(--radius);
-  color: var(--muted);
-  text-align: center;
-  transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 320px;
+    padding: 28px;
+    border: 1px dashed var(--frame);
+    border-radius: var(--radius);
+    color: var(--muted);
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .project-soon i {
-  font-size: 2.4rem;
-  color: var(--icon);
-  transition: color 0.3s, transform 0.4s;
+    font-size: 2.4rem;
+    color: var(--icon);
+    transition: color 0.3s, transform 0.4s;
 }
 
 .project-soon p {
-  margin: 0;
+    margin: 0;
 }
 
 .project-soon:hover {
-  background: var(--surface);
-  color: var(--text);
+    background: var(--surface);
+    color: var(--text);
 }
 
 .project-soon:hover i {
-  color: var(--text);
-  transform: rotate(90deg);
+    color: var(--text);
+    transform: rotate(90deg);
 }
 
 /* =====================================================================
@@ -1895,6 +1911,34 @@ h3 {
     50% {
         opacity: 0.3;
         transform: scale(0.7);
+    }
+}
+
+/* skills page: a block rises and fades in */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        translate: 0 50px;
+        scale: 0.97;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+/* skills page: a title slides in from the left */
+@keyframes title-in {
+    from {
+        opacity: 0;
+        translate: -40px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
     }
 }
 
@@ -2104,6 +2148,10 @@ h3 {
     }
 }
 
+.web-trio {
+    flex-direction: column;
+}
+
 /* Phones */
 @media (max-width: 640px) {
     html {
@@ -2190,14 +2238,14 @@ h3 {
 
     .social {
         flex: 1 1 calc(33.333% - 16px);
-        /* 3 icons per row */
         width: auto;
     }
 
     .stamp {
-        top: 12px;
-        right: 12px;
-        font-size: 0.65rem;
+        top: 10px;
+        right: 10px;
+        padding: 4px 8px;
+        font-size: 0.55rem;
     }
 
     /* about page */
