@@ -1653,20 +1653,20 @@ h3 {
     background: transparent;
 }
 
-/* scroll animation: each catalog fades in from below
-   and fades out at the top (same idea as the journey stops) */
+/* scroll animation for the skills page (no JavaScript):
+   every block appears from below while you scroll */
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
 
-        .catalog:not(#gaming)>*:not(.zorin-block),
+        .catalog>*:not(.zorin-block),
         .zorin-block>* {
-            animation: reveal linear both, stop-out linear forwards;
-            animation-timeline: view(), view();
-            animation-range: entry 0% entry 60%, exit 40% exit 100%;
+            animation: reveal linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 60%;
         }
 
-        .catalog:not(#gaming)>h2 {
-            animation-name: title-in, stop-out;
+        .catalog>h2 {
+            animation-name: title-in;
         }
     }
 }
@@ -2236,9 +2236,24 @@ h3 {
         text-align: center;
     }
 
+    /* contact icons: all 6 in one row, smaller */
+    .socials {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .socials li {
+        flex: 1;
+        /* all 6 get the same width */
+    }
+
     .social {
-        flex: 1 1 calc(33.333% - 16px);
-        width: auto;
+        width: 100%;
+        padding: 14px 0;
+    }
+
+    .social i {
+        font-size: 1.6rem;
     }
 
     .stamp {
@@ -2308,18 +2323,4 @@ h3 {
         color: #6b6f85;
         font-style: italic;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
