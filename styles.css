@@ -1,43 +1,17 @@
 /* =====================================================================
-   HAMZA SHUIBAT - PORTFOLIO - style.css
-   One stylesheet for every page. HTML + CSS only.
-
-   1. Colors (variables)        8. Projects
-   2. Base styles               9. Contact
-   3. Header + navigation       10. Footer
-   4. Dark / light switch       11. Icon colors on hover
-   5. Hero                      12. About page
-   6. About (home)              12b. Skills page
-   7. Skills (home)             13. Animations
-                                14. Responsive (mobile)
+   ALL PAGES (index.html, about.html, skills.html, projects.html)
    ===================================================================== */
 
-
-/* =====================================================================
-   1. COLORS (VARIABLES)
-   Every color comes from here, so the theme switch only changes these.
-   ===================================================================== */
-
-/* Dark mode (default) */
 :root {
     --bg: #161618;
-    /* page background */
     --surface: #202023;
-    /* cards and boxes */
     --border: #303035;
-    /* lines and borders */
     --text: #ededee;
-    /* main text */
     --muted: #a1a1a9;
-    /* secondary text */
     --icon: #8b8b94;
-    /* grey icons before hover */
     --stamp: #f5b544;
-    /* project status stamps */
     --frame: #5a5a62;
-    /* darker grey for frames on hover */
 
-    /* the original color of each icon (shown on hover) */
     --java: #e76f00;
     --html: #e34f26;
     --css: #1572b6;
@@ -53,7 +27,6 @@
     --gaming: #22c55e;
     --linkedin: #0a66c2;
     --github: #ffffff;
-    /* GitHub is black, so it's white on the dark theme */
     --youtube: #ff0000;
     --email: #ea4335;
     --whatsapp: #25d366;
@@ -64,8 +37,6 @@
     color-scheme: dark;
 }
 
-/* Light mode: when the theme checkbox is checked.
-   :has() means "if the page has a checked #theme-switch, then..." */
 :root:has(#theme-switch:checked) {
     --bg: #f3f3f4;
     --surface: #ffffff;
@@ -79,11 +50,6 @@
     color-scheme: light;
 }
 
-
-/* =====================================================================
-   2. BASE STYLES
-   ===================================================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -91,7 +57,6 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
-    /* #links stop below the sticky header */
 }
 
 body {
@@ -102,7 +67,6 @@ body {
     color: var(--text);
     background: var(--bg);
     transition: background-color 0.4s, color 0.4s;
-    /* smooth theme change */
 }
 
 img {
@@ -129,7 +93,6 @@ h3 {
     line-height: 1.1;
     font-weight: 800;
     font-stretch: 125%;
-    /* the wide version of the Archivo font */
 }
 
 :focus-visible {
@@ -137,7 +100,6 @@ h3 {
     outline-offset: 4px;
 }
 
-/* centers the content and limits its width */
 .container {
     max-width: 1120px;
     margin: 0 auto;
@@ -153,14 +115,8 @@ h3 {
     font-size: clamp(2.2rem, 5vw, 3.2rem);
 }
 
-
-/* =====================================================================
-   3. HEADER + NAVIGATION BAR
-   ===================================================================== */
-
 .header {
     position: sticky;
-    /* stays at the top while scrolling */
     top: 0;
     z-index: 10;
     background: var(--bg);
@@ -178,7 +134,6 @@ h3 {
     padding: 0 24px;
 }
 
-/* the round "HS" logo */
 .logo {
     display: flex;
     align-items: center;
@@ -203,7 +158,6 @@ h3 {
     display: flex;
     gap: 26px;
     margin-left: auto;
-    /* pushes the links to the right */
 }
 
 .nav-links a {
@@ -213,7 +167,6 @@ h3 {
     transition: color 0.2s;
 }
 
-/* underline that grows on hover */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -234,22 +187,14 @@ h3 {
     transform: scaleX(1);
 }
 
-
-/* =====================================================================
-   4. DARK / LIGHT SWITCH
-   ===================================================================== */
-
-/* the real checkbox is hidden, but you can still reach it with Tab */
 .theme-switch {
     position: fixed;
-    /* always "on screen", so focusing it never scrolls the page */
     top: 0;
     left: 0;
     opacity: 0;
     pointer-events: none;
 }
 
-/* the round button you see (clicking a <label> toggles its checkbox) */
 .theme-toggle {
     position: relative;
     width: 42px;
@@ -265,13 +210,11 @@ h3 {
     transform: scale(1.1);
 }
 
-/* focus ring on the button when the checkbox has keyboard focus */
 .theme-switch:focus-visible+.theme-toggle {
     outline: 2px solid var(--text);
     outline-offset: 3px;
 }
 
-/* both icons sit in the center; only one is visible at a time */
 .theme-toggle i {
     position: absolute;
     top: 50%;
@@ -290,7 +233,6 @@ h3 {
     transform: rotate(-90deg) scale(0.4);
 }
 
-/* light mode: the moon spins away and the sun spins in */
 .theme-switch:checked+.theme-toggle .fa-moon {
     opacity: 0;
     transform: rotate(90deg) scale(0.4);
@@ -301,49 +243,6 @@ h3 {
     transform: none;
 }
 
-
-/* =====================================================================
-   5. HERO
-   ===================================================================== */
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-    min-height: calc(100vh - 72px);
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.hero h1 {
-    font-size: clamp(2.8rem, 8vw, 5.6rem);
-    animation: fade-up 0.8s both;
-}
-
-.hero-title {
-    margin: 14px 0 22px;
-    color: var(--muted);
-    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
-    font-weight: 600;
-    animation: fade-up 0.8s 0.15s both;
-}
-
-.hero-intro {
-    max-width: 44ch;
-    margin: 0 0 34px;
-    color: var(--muted);
-    animation: fade-up 0.8s 0.3s both;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    animation: fade-up 0.8s 0.45s both;
-}
-
-/* buttons */
 .button {
     display: inline-block;
     padding: 13px 26px;
@@ -366,366 +265,6 @@ h3 {
     background: var(--text);
     color: var(--bg);
 }
-
-/* your photo in a circle */
-.hero-circle {
-    position: relative;
-    flex-shrink: 0;
-    width: 300px;
-    height: 300px;
-    animation: pop-in 0.9s 0.3s both;
-}
-
-.hero-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* fills the circle without stretching */
-    border: 2px solid var(--border);
-    border-radius: 50%;
-    transition: border-color 0.4s, transform 0.4s;
-}
-
-/* dashed ring around the photo */
-.hero-circle::before {
-    content: "";
-    position: absolute;
-    inset: -18px;
-    border: 2px dashed var(--border);
-    border-radius: 50%;
-}
-
-.hero-circle:hover img {
-    border-color: var(--text);
-    transform: scale(1.03);
-}
-
-.hero-circle:hover::before {
-    animation: spin 6s linear infinite;
-}
-
-
-/* =====================================================================
-   6. ABOUT (HOME)
-   ===================================================================== */
-
-.about {
-    display: flex;
-    align-items: flex-start;
-    gap: 56px;
-}
-
-.about-text {
-    flex: 1;
-    max-width: 60ch;
-}
-
-.about-text p {
-    margin: 0 0 18px;
-    color: var(--muted);
-    font-size: 1.15rem;
-}
-
-/* the list with icons */
-.facts {
-    flex: 0 0 340px;
-    padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-}
-
-.facts li {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    transition: background-color 0.25s, transform 0.25s;
-}
-
-.facts i {
-    width: 24px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--icon);
-    transition: color 0.3s;
-}
-
-.facts li:hover {
-    background: var(--bg);
-    transform: translateX(6px);
-}
-
-.about-buttons {
-    margin-top: 36px;
-    /* about half the button's height */
-    margin-left: -4px;
-    /* a small nudge to the left */
-}
-
-
-/* =====================================================================
-   7. SKILLS (HOME)
-   Each card is a link to its catalog on skills.html.
-   ===================================================================== */
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    /* cards move to the next line when there's no room */
-    gap: 20px;
-}
-
-.skill {
-    flex: 1 1 calc(33.333% - 20px);
-    /* 3 cards per row */
-}
-
-/* the link fills the whole card, so you can click anywhere on it */
-.skill a {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    height: 100%;
-    padding: 28px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
-
-.skill i {
-    font-size: 2.4rem;
-    color: var(--icon);
-    /* grey until you hover */
-    transition: color 0.3s;
-}
-
-.skill h3 {
-    font-size: 1.2rem;
-}
-
-.skill a:hover {
-    transform: translateY(-8px);
-    border-color: var(--icon);
-    box-shadow: 0 14px 30px rgb(0 0 0 / 0.18);
-}
-
-.skill a:hover i {
-    animation: wiggle 0.6s;
-}
-
-/* "More & More": dashed border, and the arrow slides right */
-.skill-more a {
-    border-style: dashed;
-    background: transparent;
-}
-
-.skill-more a:hover i {
-    color: var(--text);
-    animation: slide-right 0.6s;
-}
-
-
-/* =====================================================================
-   8. PROJECTS
-   ===================================================================== */
-
-.projects {
-    display: flex;
-    gap: 28px;
-}
-
-.project {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
-}
-
-.project-image {
-    margin: 0;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    /* keeps the zoomed image inside */
-    border-bottom: 1px solid var(--border);
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s;
-}
-
-/* status stamp on the image corner */
-.stamp {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    margin: 0;
-    padding: 6px 12px;
-    border: 2px solid var(--stamp);
-    border-radius: 6px;
-    background: var(--bg);
-    color: var(--stamp);
-    font-size: 0.75rem;
-    font-weight: 800;
-    font-stretch: 125%;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    rotate: -4deg;
-}
-
-.project-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 26px 28px 28px;
-}
-
-.project-body h3 {
-    margin-bottom: 12px;
-    font-size: 1.7rem;
-}
-
-.project-body p {
-    margin: 0 0 18px;
-    color: var(--muted);
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-}
-
-.tags li {
-    padding: 4px 12px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    color: var(--muted);
-    font-size: 0.85rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 22px;
-    margin-top: auto;
-    /* pushes the links to the bottom of the card */
-}
-
-.project-links a {
-    font-weight: 650;
-    border-bottom: 2px solid var(--border);
-    transition: border-color 0.3s;
-}
-
-.project-links a:hover {
-    border-color: var(--text);
-}
-
-.project:hover {
-    transform: translateY(-8px);
-    border-color: var(--icon);
-    box-shadow: 0 18px 40px rgb(0 0 0 / 0.22);
-}
-
-.project:hover .project-image img {
-    transform: scale(1.06);
-}
-
-.project:hover .stamp {
-    animation: stamp 0.5s;
-}
-
-/* "More projects" button on the right, under the cards */
-.projects-buttons {
-    display: flex;
-    justify-content: flex-end;
-    /* pushes the button to the right */
-    margin-top: 28px;
-}
-
-.projects-buttons i {
-    margin-left: 8px;
-    transition: transform 0.3s;
-}
-
-/* the arrow slides right on hover */
-.projects-buttons .button:hover i {
-    transform: translateX(5px);
-}
-
-
-/* =====================================================================
-   9. CONTACT
-   ===================================================================== */
-
-.contact-text {
-    margin: -20px 0 36px;
-    color: var(--muted);
-}
-
-.socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.social {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 130px;
-    padding: 24px 10px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    color: var(--muted);
-    font-weight: 600;
-    transition: transform 0.3s, border-color 0.3s, color 0.3s;
-}
-
-/* the name is hidden from the eyes, but screen readers still read it */
-.social span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-}
-
-.social i {
-    font-size: 2.6rem;
-    color: var(--icon);
-    /* grey until you hover */
-    transition: color 0.3s;
-}
-
-.social:hover {
-    transform: translateY(-8px);
-    border-color: var(--icon);
-    color: var(--text);
-}
-
-.social:hover i {
-    animation: bounce 0.6s;
-}
-
-
-/* =====================================================================
-   10. FOOTER
-   ===================================================================== */
 
 .footer {
     margin-top: 110px;
@@ -762,13 +301,6 @@ h3 {
 .to-top:hover i {
     transform: translateY(-4px);
 }
-
-
-/* =====================================================================
-   11. ICON COLORS ON HOVER
-   Each item has a class (java, arch, github...). On hover its icon
-   changes from grey to its original color.
-   ===================================================================== */
 
 .java:hover i {
     color: var(--java);
@@ -846,9 +378,6 @@ h3 {
     color: var(--discord);
 }
 
-/* icons Font Awesome doesn't have (from Simple Icons).
-   The logo is used as a stencil (mask) and filled with the text color,
-   so it changes color exactly like the other icons. */
 .si {
     display: inline-block;
     width: 1em;
@@ -870,12 +399,833 @@ h3 {
     --logo: url("https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/gnubash.svg");
 }
 
+@media (max-width: 640px) {
+    html {
+        scroll-padding-top: 130px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        row-gap: 12px;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+        font-size: 0.95rem;
+    }
+
+    .section {
+        padding-top: 80px;
+    }
+}
+
 
 /* =====================================================================
-   12. ABOUT PAGE
+   index.html
    ===================================================================== */
 
-/* ---------- top: intro on the left, photo on the right ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    min-height: calc(100vh - 72px);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 8vw, 5.6rem);
+    animation: fade-up 0.8s both;
+}
+
+.hero-title {
+    margin: 14px 0 22px;
+    color: var(--muted);
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    font-weight: 600;
+    animation: fade-up 0.8s 0.15s both;
+}
+
+.hero-intro {
+    max-width: 44ch;
+    margin: 0 0 34px;
+    color: var(--muted);
+    animation: fade-up 0.8s 0.3s both;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    animation: fade-up 0.8s 0.45s both;
+}
+
+.hero-circle {
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    animation: pop-in 0.9s 0.3s both;
+}
+
+.hero-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    transition: border-color 0.4s, transform 0.4s;
+}
+
+.hero-circle::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    border: 2px dashed var(--border);
+    border-radius: 50%;
+}
+
+.hero-circle:hover img {
+    border-color: var(--text);
+    transform: scale(1.03);
+}
+
+.hero-circle:hover::before {
+    animation: spin 6s linear infinite;
+}
+
+.about {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 60ch;
+}
+
+.about-text p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+.facts {
+    flex: 0 0 340px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.facts li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: background-color 0.25s, transform 0.25s;
+}
+
+.facts i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.facts li:hover {
+    background: var(--bg);
+    transform: translateX(6px);
+}
+
+.about-buttons {
+    margin-top: 36px;
+    margin-left: -4px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill {
+    flex: 1 1 calc(33.333% - 20px);
+}
+
+.skill a {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.skill i {
+    font-size: 2.4rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.skill h3 {
+    font-size: 1.2rem;
+}
+
+.skill a:hover {
+    background: var(--bg);
+    border-color: var(--frame);
+}
+
+.skill-more a {
+    border-style: dashed;
+    background: transparent;
+}
+
+.skill-more a:hover i {
+    color: var(--text);
+    transform: translateX(8px);
+}
+
+.contact-text {
+    margin: -20px 0 36px;
+    color: var(--muted);
+}
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.social {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 130px;
+    padding: 24px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 600;
+    transition: transform 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.social span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.social i {
+    font-size: 2.6rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.social:hover {
+    transform: translateY(-8px);
+    border-color: var(--icon);
+    color: var(--text);
+}
+
+.social:hover i {
+    animation: bounce 0.6s;
+}
+
+@media (max-width: 900px) {
+    .hero-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .facts {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .skill {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 56px;
+    }
+
+    .hero-circle {
+        width: 150px;
+        height: 150px;
+        margin-left: 18px;
+    }
+
+    .hero-circle::before {
+        inset: -12px;
+    }
+
+    .skill {
+        flex-basis: 100%;
+    }
+
+    .skill a {
+        flex-direction: row;
+        align-items: center;
+        padding: 20px 22px;
+    }
+
+    .skill i {
+        width: 40px;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .socials {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .socials li {
+        flex: 1;
+    }
+
+    .social {
+        width: 100%;
+        padding: 14px 0;
+    }
+
+    .social i {
+        font-size: 1.6rem;
+    }
+}
+
+/* =====================================================================
+   index.html
+   ===================================================================== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    min-height: calc(100vh - 72px);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 8vw, 5.6rem);
+    animation: fade-up 0.8s both;
+}
+
+.hero-title {
+    margin: 14px 0 22px;
+    color: var(--muted);
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    font-weight: 600;
+    animation: fade-up 0.8s 0.15s both;
+}
+
+.hero-intro {
+    max-width: 44ch;
+    margin: 0 0 34px;
+    color: var(--muted);
+    animation: fade-up 0.8s 0.3s both;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    animation: fade-up 0.8s 0.45s both;
+}
+
+.hero-circle {
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    animation: pop-in 0.9s 0.3s both;
+}
+
+.hero-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    transition: border-color 0.4s, transform 0.4s;
+}
+
+.hero-circle::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    border: 2px dashed var(--border);
+    border-radius: 50%;
+}
+
+.hero-circle:hover img {
+    border-color: var(--text);
+    transform: scale(1.03);
+}
+
+.hero-circle:hover::before {
+    animation: spin 6s linear infinite;
+}
+
+.about {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 60ch;
+}
+
+.about-text p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+.facts {
+    flex: 0 0 340px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.facts li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: background-color 0.25s, transform 0.25s;
+}
+
+.facts i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.facts li:hover {
+    background: var(--bg);
+    transform: translateX(6px);
+}
+
+.about-buttons {
+    margin-top: 36px;
+    margin-left: -4px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill {
+    flex: 1 1 calc(33.333% - 20px);
+    transition: opacity 0.3s;
+}
+
+.skill.languages {
+    --k: var(--languages);
+}
+
+.skill.ai {
+    --k: var(--ai);
+}
+
+.skill.linux {
+    --k: var(--linux);
+}
+
+.skill.git {
+    --k: var(--git);
+}
+
+.skill.gaming {
+    --k: var(--gaming);
+}
+
+.skill-more {
+    --k: var(--text);
+}
+
+.skill a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color 0.2s ease-out;
+}
+
+.skill a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+    transform: skewX(-20deg);
+    transition: none;
+}
+
+.skill i {
+    font-size: 2.4rem;
+    color: var(--icon);
+    transition: color 0.3s, transform 0.4s;
+}
+
+.skill h3 {
+    font-size: 1.2rem;
+}
+
+.skill a:hover {
+    border-color: var(--k);
+}
+
+.skill a:hover::after {
+    left: 130%;
+    transition: left 0.7s;
+}
+
+.skills:has(.skill:hover) .skill:not(:hover) {
+    opacity: 0.4;
+}
+
+.skill-more a {
+    border-style: dashed;
+    background: transparent;
+}
+
+.skill-more a::after {
+    display: none;
+}
+
+.skill-more a:hover i {
+    color: var(--text);
+    transform: translateX(8px);
+}
+
+.contact-text {
+    margin: -20px 0 36px;
+    color: var(--muted);
+}
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.social {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 130px;
+    padding: 24px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 600;
+    transition: transform 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.social span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.social i {
+    font-size: 2.6rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.social:hover {
+    transform: translateY(-8px);
+    border-color: var(--icon);
+    color: var(--text);
+}
+
+.social:hover i {
+    animation: bounce 0.6s;
+}
+
+@media (max-width: 900px) {
+    .hero-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .facts {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .skill {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 56px;
+    }
+
+    .hero-circle {
+        width: 150px;
+        height: 150px;
+        margin-left: 18px;
+    }
+
+    .hero-circle::before {
+        inset: -12px;
+    }
+
+    .skill {
+        flex-basis: 100%;
+    }
+
+    .skill a {
+        flex-direction: row;
+        align-items: center;
+        padding: 20px 22px;
+    }
+
+    .skill i {
+        width: 40px;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .socials {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .socials li {
+        flex: 1;
+    }
+
+    .social {
+        width: 100%;
+        padding: 14px 0;
+    }
+
+    .social i {
+        font-size: 1.6rem;
+    }
+}
+
+/* =====================================================================
+   index.html + projects.html (project cards)
+   ===================================================================== */
+
+.projects {
+    display: flex;
+    gap: 28px;
+}
+
+.project {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+
+.project-image {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.stamp {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    margin: 0;
+    padding: 6px 12px;
+    border: 2px solid var(--stamp);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--stamp);
+    font-size: 0.75rem;
+    font-weight: 800;
+    font-stretch: 125%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    rotate: -4deg;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 26px 28px 28px;
+}
+
+.project-body h3 {
+    margin-bottom: 12px;
+    font-size: 1.7rem;
+}
+
+.project-body p {
+    margin: 0 0 18px;
+    color: var(--muted);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tags li {
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 22px;
+    margin-top: auto;
+}
+
+.project-links a {
+    font-weight: 650;
+    border-bottom: 2px solid var(--border);
+    transition: border-color 0.3s;
+}
+
+.project-links a:hover {
+    border-color: var(--text);
+}
+
+.project:hover {
+    transform: translateY(-8px);
+    border-color: var(--icon);
+    box-shadow: 0 18px 40px rgb(0 0 0 / 0.22);
+}
+
+.project:hover .project-image img {
+    transform: scale(1.06);
+}
+
+.project:hover .stamp {
+    animation: stamp 0.5s;
+}
+
+.projects-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 28px;
+}
+
+.projects-buttons i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.projects-buttons .button:hover i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 900px) {
+    .projects {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .stamp {
+        top: 10px;
+        right: 10px;
+        padding: 4px 8px;
+        font-size: 0.55rem;
+    }
+}
+
+/* =====================================================================
+   about.html
+   ===================================================================== */
+
 .about-top {
     display: flex;
     align-items: center;
@@ -900,14 +1250,12 @@ h3 {
     animation: fade-up 0.8s 0.2s both;
 }
 
-/* the first line is bigger and brighter */
 .about-intro .about-lead {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text);
 }
 
-/* photo box + name box underneath, same color */
 .profile {
     flex: 0 0 280px;
     margin: 0;
@@ -925,9 +1273,7 @@ h3 {
 .profile img {
     width: 100%;
     aspect-ratio: 1;
-    /* always a square */
     object-fit: cover;
-    /* fills the square without stretching */
     padding: 10px;
 }
 
@@ -939,25 +1285,20 @@ h3 {
     font-stretch: 125%;
 }
 
-/* hover: only the frame lights up, no movement */
 .profile:hover img,
 .profile:hover figcaption {
     border-color: var(--frame);
 }
 
-/* ---------- my journey: a line going down with stops ---------- */
 .journey {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 160px;
-    /* big space between the stops */
     max-width: 620px;
     padding-left: 44px;
-    /* room for the line on the left */
 }
 
-/* the line: ::before is the grey track, ::after is the line that draws itself */
 .journey::before,
 .journey::after {
     content: "";
@@ -972,25 +1313,20 @@ h3 {
 .journey::after {
     background: var(--text);
     transform-origin: top;
-    /* grows from the top down */
 }
 
 .stop {
     position: relative;
 }
 
-/* the dot: its center sits exactly on the line, next to the middle of the card */
 .stop::before {
     content: "";
     position: absolute;
     left: -31px;
-    /* the line's center (13px) minus the 44px padding */
     top: 54px;
-    /* the middle of the card */
     width: 14px;
     height: 14px;
     translate: -50% -50%;
-    /* so the dot's center is the point we placed */
     border: 2px solid var(--text);
     border-radius: 50%;
     background: var(--bg);
@@ -1025,7 +1361,6 @@ h3 {
     font-size: 0.95rem;
 }
 
-/* the story under a stop card, in the space between stops */
 .stop-story {
     max-width: 60ch;
     margin: 18px 0 0;
@@ -1044,7 +1379,6 @@ h3 {
     transform: scale(1.15);
 }
 
-/* ---------- a day in my life: 3 cards side by side ---------- */
 .routine {
     display: flex;
     gap: 20px;
@@ -1052,7 +1386,6 @@ h3 {
 
 .routine li {
     flex: 1;
-    /* all 3 cards get the same width */
     padding: 24px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -1077,8 +1410,6 @@ h3 {
     font-size: 0.95rem;
 }
 
-/* hover like the facts list: the card stays in place,
-   the background changes and the icon slides a little */
 .routine li:hover {
     background: var(--bg);
     border-color: var(--frame);
@@ -1089,23 +1420,14 @@ h3 {
     transform: translateX(6px);
 }
 
-/* ---------- scroll animation (no JavaScript) ----------
-   animation-timeline: view() runs the animation with the scroll
-   instead of with time. Browsers that don't support it just
-   show everything normally. */
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-
-        /* each stop has 2 animations:
-       stop-in  plays while it enters the screen from the bottom,
-       stop-out plays while it leaves the screen at the top */
         .stop {
             animation: stop-in linear both, stop-out linear forwards;
             animation-timeline: view(), view();
             animation-range: entry 0% entry 100%, exit 0% exit 100%;
         }
 
-        /* the line draws itself while the journey comes into view */
         .journey::after {
             animation: draw-line linear both;
             animation-timeline: view();
@@ -1114,9 +1436,38 @@ h3 {
     }
 }
 
+@media (max-width: 640px) {
+    .about-top {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .profile {
+        flex-basis: auto;
+        width: 220px;
+    }
+
+    .journey {
+        padding-left: 36px;
+    }
+
+    .journey::before,
+    .journey::after {
+        left: 8px;
+    }
+
+    .stop::before {
+        left: -27px;
+    }
+
+    .routine {
+        flex-direction: column;
+    }
+}
+
 
 /* =====================================================================
-   12b. SKILLS PAGE
+   skills.html
    ===================================================================== */
 
 .skills-top h1 {
@@ -1132,18 +1483,20 @@ h3 {
     animation: fade-up 0.8s 0.2s both;
 }
 
-/* big empty space between the catalogs */
 .catalog {
     padding-top: 220px;
 }
 
-/* the icon next to each catalog title */
 .catalog h2 i {
     margin-right: 12px;
     color: var(--icon);
 }
 
-/* ---------- terminals (Java + Bash), side by side ---------- */
+.catalog-lead {
+    margin: -20px 0 32px;
+    color: var(--muted);
+}
+
 .terminals {
     display: flex;
     gap: 28px;
@@ -1153,10 +1506,8 @@ h3 {
 .lang {
     flex: 1;
     min-width: 0;
-    /* lets long code lines scroll instead of stretching the page */
 }
 
-/* small title above each terminal: icon + language name */
 .lang h3 {
     display: flex;
     align-items: center;
@@ -1171,7 +1522,6 @@ h3 {
     transition: color 0.3s;
 }
 
-/* the terminal window. It stays dark in both themes, like a real terminal */
 .terminal {
     overflow: hidden;
     border: 1px solid #34353f;
@@ -1185,7 +1535,6 @@ h3 {
     transition: box-shadow 0.3s;
 }
 
-/* the three window buttons: red, yellow, green */
 .terminal-bar {
     display: flex;
     gap: 8px;
@@ -1211,7 +1560,6 @@ h3 {
     margin: 0;
     padding: 8px 22px 20px;
     overflow-x: auto;
-    /* long lines scroll inside the terminal on small screens */
     font: inherit;
 }
 
@@ -1219,50 +1567,44 @@ h3 {
     margin: 0;
 }
 
-/* terminal colors */
 .t-path {
     color: #7fdbff;
     font-weight: 700;
 }
 
-/* ~ */
 .t-prompt {
     color: #ff79c6;
 }
 
-/* ❯ */
 .t-kw {
     color: #ff79c6;
 }
 
-/* public, class, void */
 .t-type {
     color: #8be9fd;
 }
 
-/* Main, String */
 .t-fn {
     color: #50fa7b;
 }
 
-/* main, println */
 .t-str {
     color: #f1fa8c;
 }
 
-/* "Hello, World!" */
 .t-key {
     color: #7fdbff;
     font-weight: 700;
 }
 
-/* neofetch labels */
+.t-comment {
+    color: #6b6f85;
+    font-style: italic;
+}
 
-/* the output line: it types itself again when you hover the terminal */
 .t-output {
     display: inline-block;
     width: 13ch;
-    /* "Hello, World!" is 13 characters */
     overflow: hidden;
     white-space: nowrap;
     vertical-align: bottom;
@@ -1272,7 +1614,6 @@ h3 {
     animation: typing 0.9s steps(13);
 }
 
-/* blinking cursor */
 .t-cursor {
     display: inline-block;
     width: 0.6em;
@@ -1282,12 +1623,10 @@ h3 {
     animation: blink 1s steps(1) infinite;
 }
 
-/* hover: a deeper shadow under the terminal */
 .lang:hover .terminal {
     box-shadow: 0 26px 55px rgb(0 0 0 / 0.45);
 }
 
-/* ---------- neofetch ---------- */
 .neofetch {
     display: flex;
     align-items: flex-start;
@@ -1295,19 +1634,16 @@ h3 {
     margin: 10px 0 14px;
 }
 
-/* the Arch icon: grey, turns Arch blue when you hover the terminal */
 .neofetch .si {
     flex-shrink: 0;
     font-size: 7.5rem;
-    color: #5d5f6b;
-    transition: color 0.4s;
+    color: var(--arch);
 }
 
 .bash:hover .neofetch .si {
     color: var(--arch);
 }
 
-/* the 8 color squares at the bottom of neofetch */
 .color-blocks {
     display: flex;
     margin-top: 10px;
@@ -1350,328 +1686,6 @@ h3 {
     background: #f8f8f2;
 }
 
-/* ---------- AI agentic: "work in progress" card ---------- */
-.wip-card {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    max-width: 720px;
-    padding: 32px;
-    border: 1px dashed var(--frame);
-    /* dashed = not finished yet */
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: border-color 0.3s, background-color 0.3s;
-}
-
-.wip-card>i {
-    font-size: 3.5rem;
-    color: var(--icon);
-    transition: color 0.3s;
-}
-
-.wip-card h3 {
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-}
-
-.wip-card p {
-    margin: 0;
-    color: var(--muted);
-}
-
-/* the "In development" badge with a pulsing dot */
-.wip-card .wip-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    padding: 4px 12px;
-    border: 1px solid var(--stamp);
-    border-radius: 999px;
-    color: var(--stamp);
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.wip-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--stamp);
-    animation: pulse 1.6s ease-in-out infinite;
-}
-
-.wip-card:hover {
-    border-color: var(--icon);
-    background: var(--bg);
-}
-
-.wip-card:hover>i {
-    color: var(--ai);
-    animation: wiggle 0.6s;
-}
-
-/* ---------- Linux: the Arch button ---------- */
-.arch-link {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 28px 40px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-/* the logo: grey, turns Arch blue on hover (section 11) and grows a little */
-.arch-link i {
-    font-size: 6rem;
-    color: var(--icon);
-    transition: color 0.4s, transform 0.4s;
-}
-
-.arch-link span {
-    font-size: 1.3rem;
-    font-weight: 800;
-    font-stretch: 125%;
-}
-
-.arch-link small {
-    color: var(--muted);
-    font-size: 0.85rem;
-}
-
-.arch-link:hover {
-    background: var(--bg);
-    border-color: var(--frame);
-}
-
-.arch-link:hover i {
-    transform: scale(1.08);
-}
-
-/* small titles inside the Linux section */
-.linux-sub {
-    margin: 64px 0 20px;
-    font-size: 1.4rem;
-}
-
-/* ---------- desktop boxes: name (link) + video ---------- */
-.rice {
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: border-color 0.3s;
-}
-
-.rice:hover {
-    border-color: var(--frame);
-}
-
-.rice-name {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    font-size: 1.25rem;
-    font-weight: 800;
-    font-stretch: 125%;
-}
-
-/* the little "open link" arrow moves up-right on hover */
-.rice-name i {
-    font-size: 0.8rem;
-    color: var(--icon);
-    transition: transform 0.3s, color 0.3s;
-}
-
-.rice-name:hover i {
-    color: var(--text);
-    transform: translate(3px, -3px);
-}
-
-.rice p {
-    margin: -6px 0 14px;
-    color: var(--muted);
-    font-size: 0.95rem;
-}
-
-/* the video keeps the YouTube shape (16:9) at any width */
-.video {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
-}
-
-.video iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* the two old desktops side by side */
-.rices-old {
-    display: flex;
-    gap: 20px;
-}
-
-.rices-old .rice {
-    flex: 1;
-    min-width: 0;
-}
-
-/* ---------- Zorin OS block ---------- */
-.zorin-block {
-    margin-top: 130px;
-    /* big space after the Arch part */
-}
-
-/* space between the Zorin logo button and its box */
-.zorin-block .rice {
-    margin-top: 30px;
-}
-
-/* ---------- my current terminal (a real screenshot) ---------- */
-.my-terminal {
-    margin: 0;
-}
-
-.my-terminal img {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: 0 20px 45px rgb(0 0 0 / 0.35);
-    transition: border-color 0.3s;
-}
-
-.my-terminal:hover img {
-    border-color: var(--frame);
-}
-
-.my-terminal figcaption {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* ---------- Git & GitHub ---------- */
-/* short line under a catalog title */
-.catalog-lead {
-    margin: -20px 0 32px;
-    color: var(--muted);
-}
-
-/* terminal on the left, GitHub button on the right */
-.git-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 28px;
-}
-
-.git-row .lang {
-    flex: 1;
-}
-
-/* ---------- Gaming ---------- */
-.games-sub {
-    margin: 56px 0 18px;
-    font-size: 1.4rem;
-}
-
-/* the first small title comes right after the h2, so no extra space */
-.games-sub:first-of-type {
-    margin-top: 0;
-}
-
-/* playing now: one card per game */
-.now-playing {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.now-game {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 24px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    font-size: 1.15rem;
-    font-weight: 800;
-    font-stretch: 125%;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.now-game:hover {
-    background: var(--bg);
-    border-color: var(--frame);
-}
-
-/* the green "live" dot, pulsing */
-.live-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--gaming);
-    animation: pulse 1.6s ease-in-out infinite;
-}
-
-/* games I've played: small pills that wrap to the next line */
-.game-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.game-list li {
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--muted);
-    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
-}
-
-/* hover: the pill lights up (no movement, so nothing jumps) */
-.game-list li:hover {
-    background: var(--bg);
-    border-color: var(--frame);
-    color: var(--text);
-}
-
-/* "and more…": dashed, like the "More & More" card on the home page */
-.game-list .game-more {
-    border-style: dashed;
-    background: transparent;
-}
-
-/* scroll animation for the skills page (no JavaScript):
-   every block appears from below while you scroll */
-@supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-
-        .catalog>*:not(.zorin-block),
-        .zorin-block>* {
-            animation: reveal linear both;
-            animation-timeline: view();
-            animation-range: entry 0% entry 60%;
-        }
-
-        .catalog>h2 {
-            animation-name: title-in;
-        }
-    }
-}
-
-/* ---------- HTML, CSS, JavaScript: one mini page in 3 stages ---------- */
 .web-trio {
     display: flex;
     gap: 20px;
@@ -1712,7 +1726,6 @@ h3 {
     border-color: var(--frame);
 }
 
-/* the mini page: a small "website" made of boxes */
 .mini-page {
     position: relative;
     display: flex;
@@ -1726,7 +1739,6 @@ h3 {
     background: var(--bg);
 }
 
-/* every box starts as a dashed outline: the HTML "skeleton" */
 .mini-page span {
     display: block;
     border: 1.5px dashed var(--icon);
@@ -1758,7 +1770,6 @@ h3 {
     margin-top: auto;
 }
 
-/* the styled version (CSS on hover, and JavaScript always) */
 .css:hover .mini-page span,
 .mini-page.styled span {
     border-color: transparent;
@@ -1786,7 +1797,6 @@ h3 {
     border-radius: 999px;
 }
 
-/* HTML hover: the boxes are built one by one, top to bottom */
 .html:hover .mini-page span {
     animation: build 0.4s both;
 }
@@ -1807,7 +1817,6 @@ h3 {
     animation-delay: 0.4s;
 }
 
-/* JavaScript hover: the button gets "clicked" and a message pops up */
 .mini-toast {
     position: absolute;
     right: 12px;
@@ -1833,8 +1842,338 @@ h3 {
     transform: translateY(0);
 }
 
+.wip-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    max-width: 720px;
+    padding: 32px;
+    border: 1px dashed var(--frame);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.wip-card>i {
+    font-size: 3.5rem;
+    color: var(--icon);
+    transition: color 0.3s;
+}
+
+.wip-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.wip-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.wip-card .wip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 4px 12px;
+    border: 1px solid var(--stamp);
+    border-radius: 999px;
+    color: var(--stamp);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.wip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--stamp);
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+.wip-card:hover {
+    border-color: var(--icon);
+    background: var(--bg);
+}
+
+.wip-card:hover>i {
+    color: var(--ai);
+    animation: wiggle 0.6s;
+}
+
+.git-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.git-row .lang {
+    flex: 1;
+}
+
+.arch-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 28px 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.arch-link i {
+    font-size: 6rem;
+    color: var(--icon);
+    transition: color 0.4s, transform 0.4s;
+}
+
+.arch-link span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-stretch: 125%;
+}
+
+.arch-link small {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.arch-link:hover {
+    background: var(--bg);
+    border-color: var(--frame);
+}
+
+.arch-link:hover i {
+    transform: scale(1.08);
+}
+
+.linux-sub {
+    margin: 64px 0 20px;
+    font-size: 1.4rem;
+}
+
+.rice {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color 0.3s;
+}
+
+.rice:hover {
+    border-color: var(--frame);
+}
+
+.rice-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-stretch: 125%;
+}
+
+.rice-name i {
+    font-size: 0.8rem;
+    color: var(--icon);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.rice-name:hover i {
+    color: var(--text);
+    transform: translate(3px, -3px);
+}
+
+.rice p {
+    margin: -6px 0 14px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.video {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.video iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.rices-old {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.rices-old .rice {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+}
+
+.zorin-block {
+    margin-top: 130px;
+}
+
+.zorin-block .rice {
+    margin-top: 30px;
+}
+
+.my-terminal {
+    margin: 0;
+}
+
+.my-terminal img {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 45px rgb(0 0 0 / 0.35);
+    transition: border-color 0.3s;
+}
+
+.my-terminal:hover img {
+    border-color: var(--frame);
+}
+
+.my-terminal figcaption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.games-sub {
+    margin: 56px 0 18px;
+    font-size: 1.4rem;
+}
+
+.games-sub:first-of-type {
+    margin-top: 0;
+}
+
+.now-playing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.now-game {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-stretch: 125%;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.now-game:hover {
+    background: var(--bg);
+    border-color: var(--frame);
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gaming);
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.game-list li {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.game-list li:hover {
+    background: var(--bg);
+    border-color: var(--frame);
+    color: var(--text);
+}
+
+.game-list .game-more {
+    border-style: dashed;
+    background: transparent;
+}
+
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+
+        .catalog>*:not(.zorin-block),
+        .zorin-block>* {
+            animation: reveal linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 60%;
+        }
+
+        .catalog>h2 {
+            animation-name: title-in;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+
+    .terminals,
+    .web-trio,
+    .git-row,
+    .rices-old {
+        flex-direction: column;
+    }
+
+    .lang {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .catalog {
+        padding-top: 140px;
+    }
+
+    .terminal {
+        font-size: 0.8rem;
+    }
+
+    .neofetch {
+        gap: 18px;
+    }
+
+    .neofetch .si {
+        font-size: 4.5rem;
+    }
+
+    .wip-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+    }
+}
+
+
 /* =====================================================================
-   12c. PROJECTS PAGE
+   projects.html
    ===================================================================== */
 
 .projects-top h1 {
@@ -1850,7 +2189,6 @@ h3 {
     animation: fade-up 0.8s 0.2s both;
 }
 
-/* 2 cards per row (the cards themselves come from section 8) */
 .projects-all {
     flex-wrap: wrap;
 }
@@ -1859,7 +2197,6 @@ h3 {
     flex: 1 1 calc(50% - 14px);
 }
 
-/* "More projects coming soon": dashed card, the + spins on hover */
 .project-soon {
     display: flex;
     flex-direction: column;
@@ -1895,54 +2232,11 @@ h3 {
     transform: rotate(90deg);
 }
 
+
 /* =====================================================================
-   13. ANIMATIONS (@keyframes)
+   ALL PAGES: ANIMATIONS
    ===================================================================== */
 
-/* the "In development" dot pulses */
-@keyframes pulse {
-    50% {
-        opacity: 0.3;
-        transform: scale(0.7);
-    }
-}
-
-@keyframes pulse {
-    50% {
-        opacity: 0.3;
-        transform: scale(0.7);
-    }
-}
-
-/* skills page: a block rises and fades in */
-@keyframes reveal {
-    from {
-        opacity: 0;
-        translate: 0 50px;
-        scale: 0.97;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
-        scale: 1;
-    }
-}
-
-/* skills page: a title slides in from the left */
-@keyframes title-in {
-    from {
-        opacity: 0;
-        translate: -40px 0;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
-    }
-}
-
-/* page load: slide up while fading in */
 @keyframes fade-up {
     from {
         opacity: 0;
@@ -1955,7 +2249,6 @@ h3 {
     }
 }
 
-/* page load: grow in */
 @keyframes pop-in {
     from {
         opacity: 0;
@@ -1974,7 +2267,6 @@ h3 {
     }
 }
 
-/* skill icons shake a little */
 @keyframes wiggle {
     25% {
         transform: rotate(-12deg);
@@ -1989,14 +2281,12 @@ h3 {
     }
 }
 
-/* the "More & More" arrow slides right */
 @keyframes slide-right {
     50% {
         transform: translateX(10px);
     }
 }
 
-/* contact icons jump */
 @keyframes bounce {
     30% {
         transform: translateY(-8px);
@@ -2007,7 +2297,6 @@ h3 {
     }
 }
 
-/* the project stamp is "pressed" again */
 @keyframes stamp {
     0% {
         transform: scale(1.4);
@@ -2024,7 +2313,13 @@ h3 {
     }
 }
 
-/* journey stops: in from below... */
+@keyframes pulse {
+    50% {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+}
+
 @keyframes stop-in {
     from {
         opacity: 0;
@@ -2039,7 +2334,6 @@ h3 {
     }
 }
 
-/* ...and out at the top */
 @keyframes stop-out {
     from {
         opacity: 1;
@@ -2054,7 +2348,6 @@ h3 {
     }
 }
 
-/* the journey line grows down */
 @keyframes draw-line {
     from {
         transform: scaleY(0);
@@ -2065,7 +2358,32 @@ h3 {
     }
 }
 
-/* the Java output types itself */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        translate: 0 50px;
+        scale: 0.97;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+@keyframes title-in {
+    from {
+        opacity: 0;
+        translate: -40px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
 @keyframes typing {
     from {
         width: 0;
@@ -2076,14 +2394,30 @@ h3 {
     }
 }
 
-/* terminal cursor */
 @keyframes blink {
     50% {
         opacity: 0;
     }
 }
 
-/* if the visitor's device asks for less motion, turn animations off */
+@keyframes build {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes press {
+    40% {
+        transform: scale(0.88);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
@@ -2092,235 +2426,5 @@ h3 {
 
     html {
         scroll-behavior: auto;
-    }
-}
-
-
-/* =====================================================================
-   14. RESPONSIVE (MOBILE)
-   ===================================================================== */
-
-/* Tablets */
-@media (max-width: 900px) {
-    .hero-circle {
-        width: 220px;
-        height: 220px;
-    }
-
-    .git-row {
-        flex-direction: column;
-        /* button under the terminal */
-    }
-
-    .rices-old {
-        flex-direction: column;
-        /* one under the other */
-    }
-
-    .distros {
-        flex-direction: column;
-        /* one distro per row */
-    }
-
-    .about,
-    .projects {
-        flex-direction: column;
-        /* stack instead of side by side */
-    }
-
-    .facts {
-        flex-basis: auto;
-        width: 100%;
-    }
-
-    .skill {
-        flex-basis: calc(50% - 20px);
-        /* 2 cards per row */
-    }
-
-    .terminals {
-        flex-direction: column;
-        /* terminals under each other */
-    }
-
-    .lang {
-        width: 100%;
-    }
-}
-
-.web-trio {
-    flex-direction: column;
-}
-
-/* Phones */
-@media (max-width: 640px) {
-    html {
-        scroll-padding-top: 130px;
-    }
-
-    .distro {
-        padding: 22px;
-        gap: 18px;
-    }
-
-    .distro>i {
-        font-size: 3.2rem;
-    }
-
-    .wip-card {
-        flex-direction: column;
-        /* robot on top, text below */
-        align-items: flex-start;
-        padding: 24px;
-    }
-
-    /* the menu moves to a second row under the logo */
-    .nav {
-        flex-wrap: wrap;
-        height: auto;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        row-gap: 12px;
-    }
-
-    .theme-toggle {
-        margin-left: auto;
-    }
-
-    .nav-links {
-        order: 3;
-        /* place it after the theme button */
-        width: 100%;
-        justify-content: space-between;
-        margin-left: 0;
-        font-size: 0.95rem;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        /* photo on top, text below */
-        align-items: flex-start;
-        min-height: auto;
-        padding-top: 56px;
-    }
-
-    .hero-circle {
-        width: 150px;
-        height: 150px;
-        margin-left: 18px;
-    }
-
-    .hero-circle::before {
-        inset: -12px;
-    }
-
-    .section {
-        padding-top: 80px;
-    }
-
-    .skill {
-        flex-basis: 100%;
-        /* 1 card per row */
-    }
-
-    .skill a {
-        flex-direction: row;
-        /* icon next to the title */
-        align-items: center;
-        padding: 20px 22px;
-    }
-
-    .skill i {
-        width: 40px;
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    /* contact icons: all 6 in one row, smaller */
-    .socials {
-        flex-wrap: nowrap;
-        gap: 8px;
-    }
-
-    .socials li {
-        flex: 1;
-        /* all 6 get the same width */
-    }
-
-    .social {
-        width: 100%;
-        padding: 14px 0;
-    }
-
-    .social i {
-        font-size: 1.6rem;
-    }
-
-    .stamp {
-        top: 10px;
-        right: 10px;
-        padding: 4px 8px;
-        font-size: 0.55rem;
-    }
-
-    /* about page */
-    .about-top {
-        flex-direction: column-reverse;
-        /* photo on top, text below */
-        align-items: flex-start;
-    }
-
-    .profile {
-        flex-basis: auto;
-        width: 220px;
-    }
-
-    .journey {
-        padding-left: 36px;
-    }
-
-    .journey::before,
-    .journey::after {
-        left: 8px;
-    }
-
-    .stop::before {
-        left: -27px;
-    }
-
-    .routine {
-        flex-direction: column;
-    }
-
-    /* skills page */
-    .catalog {
-        padding-top: 140px;
-    }
-
-    .terminal {
-        font-size: 0.8rem;
-    }
-
-    .neofetch {
-        gap: 18px;
-    }
-
-    .neofetch .si {
-        font-size: 4.5rem;
-    }
-
-    .t-comment {
-        color: #6b6f85;
-        font-style: italic;
-    }
-
-    .t-key {
-        color: #7fdbff;
-        font-weight: 700;
-    }
-
-    .t-comment {
-        color: #6b6f85;
-        font-style: italic;
     }
 }
